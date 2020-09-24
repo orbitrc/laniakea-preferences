@@ -1,3 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include <libintl.h>
+#include <locale.h>
+
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
@@ -7,7 +13,15 @@
 
 int main(int argc, char *argv[])
 {
+    // Setup gettext environment.
+    setlocale(LC_ALL, "");
+    bindtextdomain("laniakea-preferences", "../share/locale");
+    textdomain("laniakea-preferences");
+
+    // For using Blusher's per-app scaling.
     QCoreApplication::setAttribute(Qt::AA_DisableHighDpiScaling);
+
+    Preferences preferences;
 
     bl::Application app(argc, argv);
 
@@ -18,7 +32,6 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
 
-    Preferences preferences;
     app.engine()->rootContext()->setContextProperty("Preferences", QVariant::fromValue(&preferences));
 
     app.engine()->load(url);

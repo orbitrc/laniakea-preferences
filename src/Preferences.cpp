@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 
+#include <libintl.h>
+
 #include <laniakea/ini.h>
 
 Preferences::Preferences(QObject *parent)
@@ -32,4 +34,9 @@ void Preferences::setDarkMode(bool value)
 {
     fprintf(stderr, "DarkMode set to %d\n", value);
     emit this->darkModeChanged(value);
+}
+
+QString Preferences::_(const QString &str) const
+{
+    return gettext(str.toStdString().c_str());
 }

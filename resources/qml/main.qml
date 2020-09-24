@@ -7,10 +7,12 @@ Window {
 
   property string page: 'main'
 
+  property var _: Preferences._
+
   visible: true
   width: 640
   height: 480
-  title: 'System Preferences'
+  title: _('System Preferences')
 
   color: "#eaeaea"
 
@@ -20,7 +22,7 @@ Window {
     ToolbarItem {
       label: 'All'
       Button {
-        title: 'All'
+        title: _('All')
         onClicked: {
           rootWindow.page = 'main';
         }

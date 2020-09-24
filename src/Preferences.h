@@ -20,6 +20,8 @@ public:
     bool darkMode() const;
     void setDarkMode(bool value);
 
+    Q_INVOKABLE QString _(const QString& str) const;
+
 signals:
     void darkModeChanged(bool value);
 

@@ -3,7 +3,7 @@ import QtQuick 2.12
 import Blusher 0.1
 
 Column {
-  property string title: 'System Preferences'
+  property string title: _('System Preferences')
 
   width: 640
   height: 480
