@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/MainButton.qml</file>
+        <file>img/preferences-desktop-keyboard.svgz</file>
+        <file>img/preferences-desktop-display.svgz</file>
+        <file>img/preferences-desktop-icons.svgz</file>
+        <file>img/preferences-desktop-icons.png</file>
+        <file>img/preferences-desktop-mouse.svgz</file>
+        <file>img/preferences-desktop-wallpaper.svgz</file>
+        <file>qml/PreferencesMain.qml</file>
+        <file>qml/Appearance.qml</file>
+    </qresource>
+</RCC>
