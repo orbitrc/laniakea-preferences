@@ -44,9 +44,41 @@ int Preferences::delayUntilRepeat() const
 
 void Preferences::setDelayUntilRepeat(int delay)
 {
-    emit this->delayUntilRepeatChanged(delay);
+    if (this->delayUntilRepeat() != delay) {
+        laniakea_preferences_set_keyboard_delay_until_repeat(this->_preferences, delay);
+
+        emit this->delayUntilRepeatChanged(delay);
+    }
 }
 
+int Preferences::keyRepeat() const
+{
+    return laniakea_preferences_keyboard_key_repeat(this->_preferences);
+}
+
+void Preferences::setKeyRepeat(int repeat)
+{
+    if (this->keyRepeat() != repeat) {
+        laniakea_preferences_set_keyboard_key_repeat(this->_preferences, repeat);
+
+        emit this->keyRepeatChanged(repeat);
+    }
+}
+
+//======================
+// Q_INVOKABLE methods
+//======================
+void Preferences::save()
+{
+    int err = laniakea_preferences_save(this->_preferences);
+    if (err != LANIAKEA_FILE_ERROR_SUCCESS) {
+        fprintf(stderr, "Failed to save preferences.conf file.");
+    }
+}
+
+//===================
+// Gettext
+//===================
 QString Preferences::_(const QString &str) const
 {
     return gettext(str.toStdString().c_str());
