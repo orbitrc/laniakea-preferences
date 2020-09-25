@@ -115,6 +115,10 @@ Column {
           id: keyboardButton
 
           imageSource: 'qrc:/img/preferences-desktop-keyboard.svgz'
+
+          onClicked: {
+            rootWindow.page = 'keyboard';
+          }
         }
         Label {
           anchors.top: keyboardButton.bottom

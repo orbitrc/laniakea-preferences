@@ -20,3 +20,6 @@ msgstr ""
 #: resources/qml/main.qml:15
 msgid "System Preferences"
 msgstr "시스템 설정"
+
+msgid "All"
+msgstr "모두"

@@ -18,6 +18,7 @@ Preferences::Preferences(QObject *parent)
 
 Preferences::~Preferences()
 {
+    laniakea_preferences_free(this->_preferences);
 }
 
 int Preferences::threshold() const
@@ -34,6 +35,16 @@ void Preferences::setDarkMode(bool value)
 {
     fprintf(stderr, "DarkMode set to %d\n", value);
     emit this->darkModeChanged(value);
+}
+
+int Preferences::delayUntilRepeat() const
+{
+    return laniakea_preferences_keyboard_delay_until_repeat(this->_preferences);
+}
+
+void Preferences::setDelayUntilRepeat(int delay)
+{
+    emit this->delayUntilRepeatChanged(delay);
 }
 
 QString Preferences::_(const QString &str) const

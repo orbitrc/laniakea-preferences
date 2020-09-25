@@ -20,3 +20,6 @@ msgstr ""
 #: resources/qml/main.qml:15
 msgid "System Preferences"
 msgstr ""
+
+msgid "All"
+msgstr ""

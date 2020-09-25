@@ -20,7 +20,7 @@ Window {
     id: toolbar
 
     ToolbarItem {
-      label: 'All'
+      label: _('All')
       Button {
         title: _('All')
         onClicked: {
@@ -76,6 +76,9 @@ Window {
       break;
     case 'appearance':
       loader.source = 'Appearance.qml';
+      break;
+    case 'keyboard':
+      loader.source = 'Keyboard.qml';
       break;
     default:
       break;
