@@ -10,6 +10,7 @@
         <file>img/preferences-desktop-wallpaper.svgz</file>
         <file>qml/PreferencesMain.qml</file>
         <file>qml/Appearance.qml</file>
+        <file>qml/Desktop.qml</file>
         <file>qml/Keyboard.qml</file>
     </qresource>
 </RCC>

@@ -77,10 +77,14 @@ Window {
     case 'appearance':
       loader.source = 'Appearance.qml';
       break;
+    case 'desktop':
+      loader.source = 'Desktop.qml';
+      break;
     case 'keyboard':
       loader.source = 'Keyboard.qml';
       break;
     default:
+      print('Invalid page: ' + rootWindow.page);
       break;
     }
   }

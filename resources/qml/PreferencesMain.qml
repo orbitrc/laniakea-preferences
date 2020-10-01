@@ -34,7 +34,7 @@ Column {
     Row {
       id: generalButtons
 
-      y: 30
+      y: 36
 
       leftPadding: 16
       spacing: 24
@@ -67,6 +67,10 @@ Column {
           id: buttonDesktop
 
           imageSource: 'qrc:/img/preferences-desktop-wallpaper.svgz'
+
+          onClicked: {
+            rootWindow.page = 'desktop';
+          }
         }
         Label {
           anchors.top: buttonDesktop.bottom
@@ -103,7 +107,7 @@ Column {
     Row {
       id: hardwareButtons
 
-      y: 30
+      y: 36
 
       leftPadding: 16
       spacing: 24

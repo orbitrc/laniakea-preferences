@@ -1,6 +1,8 @@
 #include "Preferences.h"
 
+// C/C++
 #include <stdio.h>
+#include <filesystem>
 
 #include <libintl.h>
 
@@ -24,6 +26,35 @@ Preferences::~Preferences()
 int Preferences::threshold() const
 {
     return 1500;
+}
+
+QList<QString> Preferences::wallpapersList() const
+{
+    namespace fs = std::filesystem;
+
+    QList<QString> list;
+
+    auto path = fs::path("/usr/share/laniakea/wallpapers");
+    for (const auto& entry: fs::directory_iterator(path)) {
+        // Skip if directory.
+        if (entry.is_directory()) {
+            continue;
+        }
+        // Get file extension.
+        auto ext = entry.path().extension();
+        // Ignore file without extension.
+        if (ext.string() == "") {
+            continue;
+        }
+        // Ignore non image file.
+        if (ext.string() != ".jpg" && ext.string() != ".jpeg" && ext.string() != ".png") {
+            continue;
+        }
+        QString file_path_string = QString(entry.path().string().c_str());
+        list.append(file_path_string);
+    }
+
+    return list;
 }
 
 bool Preferences::darkMode() const
