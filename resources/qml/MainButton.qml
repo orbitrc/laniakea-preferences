@@ -13,7 +13,7 @@ View {
   width: 72
   height: 72
 
-  Item {
+  View {
     id: innerShadowSource
 
     anchors.fill: parent

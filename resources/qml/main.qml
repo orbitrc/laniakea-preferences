@@ -14,8 +14,6 @@ Window {
   height: 480
   title: _('System Preferences')
 
-  color: "#eaeaea"
-
   Toolbar {
     id: toolbar
 

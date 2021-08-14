@@ -32,8 +32,7 @@ QML_DESIGNER_IMPORT_PATH =
 
 DEFINES += \
     BLUSHER_APP_NAME=\\\"Preferences\\\" \
-    BLUSHER_APP_VERSION=\\\"0.1.0\\\" \
-    BLUSHER_PATH=\\\"$$(HOME)/dev/Blusher/lib/blusher\\\"
+    BLUSHER_APP_VERSION=\\\"0.1.0\\\"
 
 CONFIG (debug, debug|release) {
     DEFINES += BLUSHER_DEBUG

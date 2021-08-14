@@ -42,7 +42,7 @@ signals:
     void keyRepeatChanged(int repeat);
 
 private:
-    laniakea_preferences *_preferences;
+    la_preferences *_preferences;
 };
 
 #endif // PREFERENCES_H

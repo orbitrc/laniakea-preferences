@@ -20,7 +20,7 @@ Column {
       text: 'General'
     }
     View {
-      anchors.verticalCenter: labelGeneral.verticalCenter
+      anchors.top: labelGeneral.bottom
       anchors.left: labelGeneral.right
       anchors.right: general.right
       anchors.rightMargin: 8
@@ -93,7 +93,7 @@ Column {
       text: 'Hardware'
     }
     View {
-      anchors.verticalCenter: labelHardware.verticalCenter
+      anchors.top: labelHardware.bottom
       anchors.left: labelHardware.right
       anchors.right: hardware.right
       anchors.rightMargin: 8

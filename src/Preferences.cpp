@@ -11,16 +11,16 @@
 Preferences::Preferences(QObject *parent)
     : QObject(parent)
 {
-    this->_preferences = laniakea_preferences_new();
-    int err = laniakea_preferences_load(this->_preferences);
-    if (err != LANIAKEA_FILE_ERROR_SUCCESS) {
+    this->_preferences = la_preferences_new();
+    int err = la_preferences_load(this->_preferences);
+    if (err != LA_FILE_ERROR_SUCCESS) {
         fprintf(stderr, "Config file load error. %d\n", err);
     }
 }
 
 Preferences::~Preferences()
 {
-    laniakea_preferences_free(this->_preferences);
+    la_preferences_free(this->_preferences);
 }
 
 int Preferences::threshold() const
@@ -59,7 +59,7 @@ QList<QString> Preferences::wallpapersList() const
 
 bool Preferences::darkMode() const
 {
-    return laniakea_preferences_dark_mode(this->_preferences);
+    return la_preferences_appearance_dark_mode(this->_preferences);
 }
 
 void Preferences::setDarkMode(bool value)
@@ -70,13 +70,13 @@ void Preferences::setDarkMode(bool value)
 
 int Preferences::delayUntilRepeat() const
 {
-    return laniakea_preferences_keyboard_delay_until_repeat(this->_preferences);
+    return la_preferences_keyboard_delay_until_repeat(this->_preferences);
 }
 
 void Preferences::setDelayUntilRepeat(int delay)
 {
     if (this->delayUntilRepeat() != delay) {
-        laniakea_preferences_set_keyboard_delay_until_repeat(this->_preferences, delay);
+        la_preferences_set_keyboard_delay_until_repeat(this->_preferences, delay);
 
         emit this->delayUntilRepeatChanged(delay);
     }
@@ -84,13 +84,13 @@ void Preferences::setDelayUntilRepeat(int delay)
 
 int Preferences::keyRepeat() const
 {
-    return laniakea_preferences_keyboard_key_repeat(this->_preferences);
+    return la_preferences_keyboard_key_repeat(this->_preferences);
 }
 
 void Preferences::setKeyRepeat(int repeat)
 {
     if (this->keyRepeat() != repeat) {
-        laniakea_preferences_set_keyboard_key_repeat(this->_preferences, repeat);
+        la_preferences_set_keyboard_key_repeat(this->_preferences, repeat);
 
         emit this->keyRepeatChanged(repeat);
     }
@@ -101,8 +101,8 @@ void Preferences::setKeyRepeat(int repeat)
 //======================
 void Preferences::save()
 {
-    int err = laniakea_preferences_save(this->_preferences);
-    if (err != LANIAKEA_FILE_ERROR_SUCCESS) {
+    int err = la_preferences_save(this->_preferences);
+    if (err != LA_FILE_ERROR_SUCCESS) {
         fprintf(stderr, "Failed to save preferences.conf file.");
     }
 }
